@@ -10,7 +10,9 @@ import './style.css';
 import App from './src/components/app';
 import reducers from './src/reducers/';
 
-const store = createStore(reducers, applyMiddleware(thunk))
+const devtools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = createStore(reducers, devtools, applyMiddleware(thunk))
 
 render(
   <Provider store={store}>
