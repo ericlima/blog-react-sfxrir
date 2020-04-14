@@ -14,14 +14,14 @@ class UserHeader extends React.Component {
       return null;
     }
 
-    return <div className="header">{user.name}</div>;
+    return <div className="header">aqui{user.name}</div>;
 
   }
 
 }
 
-const mapStateToProps = (state) => {
-  return { user: null };
+const mapStateToProps = (state,ownProps) => {
+  return { user: state.users.find(user => user.id === this.ownProps.userId) };
 }
 
 export default connect(
